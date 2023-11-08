@@ -3,6 +3,7 @@
 mod claim_detailed;
 mod common;
 mod context;
+mod coverage;
 mod fast_forward;
 mod ft_contract_interface;
 mod happy_flow;

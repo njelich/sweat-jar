@@ -6,7 +6,7 @@ use model::{
 };
 use near_sdk::{json_types::U128, Timestamp};
 use near_units::parse_near;
-use near_workspaces::{Account, AccountId, Contract};
+use near_workspaces::{result::ViewResultDetails, Account, AccountId, Contract};
 use serde_json::{json, Value};
 
 use crate::measure::outcome_storage::OutcomeStorage;
@@ -94,6 +94,8 @@ pub(crate) trait JarContractInterface {
     ) -> anyhow::Result<U128>;
 
     async fn block_timestamp_ms(&self) -> anyhow::Result<Timestamp>;
+
+    async fn get_coverage(&self) -> anyhow::Result<ViewResultDetails>;
 }
 
 #[async_trait]
@@ -619,6 +621,14 @@ impl JarContractInterface for Contract {
         let result = self.view("block_timestamp_ms").await?.json()?;
 
         println!("   ✅ {:?}", result);
+
+        Ok(result)
+    }
+
+    async fn get_coverage(&self) -> anyhow::Result<ViewResultDetails> {
+        println!("▶️ Get coverage");
+
+        let result = self.view("get_coverage").await?;
 
         Ok(result)
     }

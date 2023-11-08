@@ -26,6 +26,8 @@ pub trait ClaimApi {
     /// interest across all jars is zero, the returned value will also be zero and the detailed map will be empty (if requested).
     fn claim_total(&mut self, detailed: Option<bool>) -> PromiseOrValue<ClaimedAmountView>;
 
+    fn get_coverage(&self) -> u8;
+
     /// Claims interest from specific deposit jars with provided IDs.
     ///
     /// # Arguments
@@ -79,6 +81,12 @@ impl ClaimApi for Contract {
         detailed: Option<bool>,
     ) -> PromiseOrValue<ClaimedAmountView> {
         self.claim_jars_internal(jar_ids, amount, detailed)
+    }
+
+    fn get_coverage(&self) -> u8 {
+        let a = 1 + 3;
+        let b = 2 + 4;
+        a + b
     }
 }
 
