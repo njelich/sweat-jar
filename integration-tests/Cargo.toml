@@ -23,7 +23,7 @@ mutants = { workspace = true }
 
 model = { workspace = true }
 
-wasmcov = { workspace = true }
+wasmcov = { version ="0.0.4", features = ["near"] }
 
 borsh = "0.10.3"
 uuid = { version = "1.5.0", features = ["v4"] }

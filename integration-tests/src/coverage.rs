@@ -37,7 +37,7 @@ async fn coverage() -> anyhow::Result<()> {
         .await?;
 
     let coverage = &context.jar_contract.get_coverage().await?;
-    let coverage: Vec<u8> = near_sdk::base64::decode(&coverage.logs[0]).unwrap();
+    let coverage: Vec<u8> = near_sdk::base64::decode(&coverage.logs.last().unwrap()).unwrap();
 
     let id = Uuid::new_v4();
 

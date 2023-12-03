@@ -141,6 +141,8 @@ impl JarContractInterface for Contract {
             .await?
             .into_result()?;
 
+        wasmcov::near::near_coverage(result.logs());
+
         for log in result.logs() {
             println!("   📖 {log}");
         }
@@ -586,7 +588,7 @@ impl JarContractInterface for Contract {
             "msg": msg.to_string(),
         });
 
-        let result = account
+        let result: near_workspaces::result::ExecutionResult<near_workspaces::result::Value> = account
             .call(ft_contract_id, "ft_transfer_call")
             .args_json(args)
             .max_gas()

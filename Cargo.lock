@@ -705,9 +705,9 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "4.4.7"
+version = "4.4.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ac495e00dcec98c83465d5ad66c5c4fabd652fd6686e7c6269b117e729a6f17b"
+checksum = "41fffed7514f420abec6d183b1d3acfd9099c79c3a10a06ade4f8203f1411272"
 dependencies = [
  "clap_builder",
  "clap_derive 4.4.7",
@@ -715,9 +715,9 @@ dependencies = [
 
 [[package]]
 name = "clap_builder"
-version = "4.4.7"
+version = "4.4.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c77ed9a32a62e6ca27175d00d29d05ca32e396ea1eb5fb01d8256b669cec7663"
+checksum = "63361bae7eef3771745f02d8d892bec2fee5f6e34af316ba556e7f97a7069ff1"
 dependencies = [
  "anstream",
  "anstyle",
@@ -1474,6 +1474,12 @@ dependencies = [
  "fallible-iterator",
  "stable_deref_trait",
 ]
+
+[[package]]
+name = "glob"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d2fabcfbdc87f4758337ca535fb41a6d701b65693ce38287d856d1674551ec9b"
 
 [[package]]
 name = "goblin"
@@ -2275,7 +2281,7 @@ checksum = "af7d35397b02b131c188c72f3885e97daeccab134ec2fc8cc0073a94cf1cfe19"
 dependencies = [
  "actix",
  "atty",
- "clap 4.4.7",
+ "clap 4.4.10",
  "near-crypto 0.17.0",
  "near-primitives-core 0.17.0",
  "once_cell",
@@ -3958,7 +3964,6 @@ dependencies = [
  "near-self-update",
  "rand 0.8.5",
  "sha256",
- "wasmcov",
 ]
 
 [[package]]
@@ -4713,14 +4718,16 @@ checksum = "ca6ad05a4870b2bf5fe995117d3728437bd27d7cd5f06f13c17443ef369775a1"
 
 [[package]]
 name = "wasmcov"
-version = "0.0.1"
-source = "git+https://github.com/njelich/wasmcov.git#30b3e7060047289459f94f2730a8c865c49d1160"
+version = "0.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "be95d60f2e4b656a5225b54f76de30992301fc9b2857fb16d165ce932982cc7d"
 dependencies = [
- "minicov",
+ "anyhow",
+ "clap 4.4.10",
+ "glob",
  "near-sdk",
- "quote",
- "serde_json",
- "syn 2.0.38",
+ "regex",
+ "uuid 1.5.0",
 ]
 
 [[package]]
